@@ -2,10 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 import media from './media';
 import 'antd/es/modal/style/css';
 import 'antd/es/checkbox/style/css';
+import 'antd/es/select/style/css';
+import 'antd/es/tag/style/css';
+import 'antd/es/pagination/style/css';
+import 'antd/es/notification/style/css';
 
 export default createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 html {
       font-size: 62.5%; /*10px*/ 
       box-sizing: border-box;
@@ -56,19 +59,23 @@ html {
     font-size: 4.2rem;
     line-height: 5rem;
     font-weight: bold;
+    color: #170C3A;
   }
   h3 {
     font-size: 3rem;
     line-height: 3.6rem;
     font-weight: bold;
+    color: #170C3A;
   }
   p {
     font-size: 2rem;
     line-height: 2.6rem;
+    color: #170C3A;
   }
   small {
     font-size: 1.8rem;
     line-height: 2.4rem;
+    color: #B1ADB9;
   }
   
   #root {
@@ -78,5 +85,17 @@ html {
   .ant-modal-footer {
     border-top: none;
   }
+  .ant-notification-notice-with-icon {
+    font-family: 'Source Sans Pro', sans-serif !important;
+    span {
+      svg {
+        fill: #ffff
+      }
+    }
+  }
+  .ant-notification-notice-message {
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-weight: bold;
+    color: #ffffff
+  }
 `;
- 

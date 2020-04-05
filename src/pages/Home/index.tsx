@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
-import { IoIosClose } from 'react-icons/io';
-import { Modal as AntdModal  } from 'antd';
-import Modal from '../../components/Modal';
+import React, { useState, useEffect } from 'react';
+import { AddTool, Tool, Loading } from '../../components';
+import { getTools } from '../../api/tools';
+
 import {
   Container,
   Wrapper,
   Input,
-  AddButton,
-  AddContainer,
-  ModalHeader,
   SearchBar,
   Content,
-  Card,
-  CardHeader,
-  Title,
-  RemoveButton,
-  Description,
-  Tags,
-  CancelButton,
-  Checkbox
+  Checkbox,
 } from './styles';
 
 export default function Home() {
-  const [modalState, setModalState] = useState(false);
-  const [checkboxState, setcheckboxState] = useState(false);
+  const [tools, setTools] = useState<Global.ITool[]>([]);
+  const [search, setSearch] = useState<string>('');
+  const [searchTag, setSearchTag] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  async function getData(): Promise<void> {
+    const { data } = await getTools({ search, searchTag });
+    setTools(data);
+  }
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      getData().then(() => setLoading(false));
+    }, 1500);
+  }, [searchTag, search]); //eslint-disable-line
 
   return (
     <Container>
@@ -31,62 +34,24 @@ export default function Home() {
       <h3>Very Useful Tools to Remember</h3>
       <Wrapper>
         <SearchBar>
-          <Input />
-          
-          <Checkbox checked={checkboxState} onChange={() => setcheckboxState(!checkboxState)}> search only in tags </Checkbox>
+          <Input onChange={(e) => setSearch(e.target.value)} />
+          <Checkbox
+            checked={searchTag}
+            onChange={() => setSearchTag(!searchTag)}
+          >
+            search only in tags
+          </Checkbox>
         </SearchBar>
-        <AddContainer>
-          <Modal />
-        </AddContainer>
+        <AddTool refetch={getData} />
       </Wrapper>
       <Content>
-        <Card>
-          <CardHeader>
-            <Title>Notion</Title>
-            <RemoveButton onClick={() => setModalState(true)}>
-              <IoIosClose size={20} />
-              remove
-            </RemoveButton>
-          </CardHeader>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            eget augue enim. In hac habitasse platea dictumst.Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Integer eget augue enim. In
-            hac habitasse platea dictumst.
-          </Description>
-          <Tags>#organization #planning #collaboration #writing #calendar</Tags>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Title>Notion</Title>
-            <RemoveButton onClick={() => setModalState(true)}>
-              <IoIosClose size={20} />
-              remove
-            </RemoveButton>
-          </CardHeader>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            eget augue enim. In hac habitasse platea dictumst.Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Integer eget augue enim. In
-            hac habitasse platea dictumst.
-          </Description>
-          <Tags>#organization #planning #collaboration #writing #calendar</Tags>
-        </Card>
+        {loading && <Loading />}
+        {!loading &&
+          tools.map((tool) => (
+            <Tool key={tool.id} tool={tool} refetch={getData} />
+          ))}
+        {!loading && tools.length === 0 && <h1>No Results Match!</h1>}
       </Content>
-      <AntdModal
-        visible={modalState}
-        onCancel={() => setModalState(false)}
-        footer=""
-      >
-        <ModalHeader><IoIosClose size={20} /> Remove tool</ModalHeader> 
-        Are you sure you want to remove Notion?
-        <AddButton>
-          Yes, remove
-        </AddButton>
-        <CancelButton>
-          Cancel
-        </CancelButton>
-      </AntdModal>
     </Container>
   );
 }
