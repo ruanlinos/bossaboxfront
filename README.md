@@ -1,44 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <div align="center">VUTTR</div>
 
-## Available Scripts
+## <div align="center">Very Useful Tools to Remember</div>
 
-In the project directory, you can run:
+### <div align="center">A App that allow users to add, list and remove tools.</div>
+#### <div align="center">[Visit the app here!](http://bossafront.herokuapp.com/)</div>
+#### ⚡️ TECHNOLOGIES
 
-### `yarn start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+TThis project was developed for the Bossabox Frontend Challenge with the following technologies:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [ReactJS](https://github.com/facebook/react/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Yup](https://github.com/jquense/yup)
+- [Unform](https://unform.dev/)
+- [Ant Design](https://ant.design/docs/react/introduce)
+- [Styled Components](https://github.com/styled-components/styled-components)
 
-### `yarn test`
+For code formatter and padronization:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Eslint](https://github.com/eslint/eslint)
+- [Prettier](https://github.com/prettier/prettier)
 
-### `yarn build`
+#### 💻 DEVELOPING
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+To run this applications, you need Git, Node and Yarn
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    # To see a version of node
+    $ node -v
+    v13.12.0
+    # To see a version of yarn
+    $ yarn -v
+    1.22.4
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Next step you must clone this repository:
 
-### `yarn eject`
+    $ git clone https://github.com/ruanlinos/bossaboxfront.git
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Inside the foder project, just run:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    # First, we need to ensure that all packages are installed:
+    $ yarn
+    
+    # Now, we can start the frontend (the backend needs to be working now!):
+    $ yarn start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Well done! the front end is running.
