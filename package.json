@@ -2,6 +2,10 @@
   "name": "bossaboxfront",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Ruan Linos Alves",
+    "email": "ruandeveloper@hotmail.com"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.0.5",
     "@testing-library/jest-dom": "^4.2.4",
