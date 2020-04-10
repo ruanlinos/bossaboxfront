@@ -52,6 +52,7 @@ export default function AddTool({ refetch }: IAddToolProps) {
             color: '#ffffff',
           },
         });
+        setTags([]);
         reset();
         setModalState(false);
         refetch();
@@ -87,15 +88,25 @@ export default function AddTool({ refetch }: IAddToolProps) {
             <IoIosAdd size={20} color="#170C3A" /> Add new Tool
           </Title>
 
-          <Input name="title" label="Tool Name" />
-          <Input type="url" name="link" label="Tool Link" />
-          <TextArea name="description" label="Tool Description" />
+          <Input name="title" label="Tool Name" placeholder="Ex: Insomnia" />
+          <Input
+            type="url"
+            name="link"
+            label="Tool Link"
+            placeholder="Ex: https://insomnia.rest/"
+          />
+          <TextArea
+            name="description"
+            label="Tool Description"
+            placeholder="Ex: Debug APIs like a human, not a robot. Finally, a REST client you'll love"
+          />
 
           <Label>Tool Tags</Label>
           <TagsInput
             mode="tags"
+            placeholder="Ex: javascript, electron, api"
             style={{ width: '100%' }}
-            placeholder="Insert tag here"
+            tokenSeparators={[',', ' ']}
             // @ts-ignore
             onChange={(value) => setTags(value)}
           />

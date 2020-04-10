@@ -16,25 +16,32 @@ export default function Home() {
   const [search, setSearch] = useState<string>('');
   const [searchTag, setSearchTag] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
   async function getData(): Promise<void> {
     const { data } = await getTools({ search, searchTag });
     setTools(data);
   }
 
+  const handleSearch = (value: string) => {
+    setTimeout(() => {
+      setSearch(value);
+    }, 1000);
+  };
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       getData().then(() => setLoading(false));
-    }, 1500);
+    }, 1100);
   }, [searchTag, search]); //eslint-disable-line
 
   return (
-    <Container>
+    <Container data-testid="tools-add">
       <h1>VUTTR</h1>
       <h3>Very Useful Tools to Remember</h3>
       <Wrapper>
         <SearchBar>
-          <Input onChange={(e) => setSearch(e.target.value)} />
+          <Input onChange={(e) => handleSearch(e.target.value)} />
           <Checkbox
             checked={searchTag}
             onChange={() => setSearchTag(!searchTag)}
