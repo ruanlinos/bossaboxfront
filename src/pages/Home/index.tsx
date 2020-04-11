@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { FaReact } from 'react-icons/fa';
 import { AddTool, Tool, Loading } from '../../components';
 import { getTools } from '../../api/tools';
-
 import {
   Container,
   Wrapper,
@@ -9,6 +9,7 @@ import {
   SearchBar,
   Content,
   Checkbox,
+  Credits,
 } from './styles';
 
 export default function Home() {
@@ -59,6 +60,16 @@ export default function Home() {
           ))}
         {!loading && tools.length === 0 && <h1>No Results Match!</h1>}
       </Content>
+      <Credits>
+        Made with <FaReact color="#61dafb" size={20} /> by
+        <a
+          href="https://ruanlinos.netlify.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ruan Linos Alves
+        </a>
+      </Credits>
     </Container>
   );
 }

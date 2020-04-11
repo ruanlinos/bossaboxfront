@@ -30,6 +30,21 @@ export const Wrapper = styled.div`
     margin-bottom: 30px;
   `}
 `;
+
+export const Credits = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+  outline: none;
+  svg,
+  a {
+    margin: 0 5px;
+  }
+`;
+
 export const Input = styled.input`
   background-color: #f5f4f6;
   border: 1px solid #ebeaed;
