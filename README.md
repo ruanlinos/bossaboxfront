@@ -4,6 +4,7 @@
 
 ### <div align="center">A App that allow users to add, list and remove tools.</div>
 #### <div align="center">[Visit the app here!](http://bossafront.herokuapp.com/)</div>
+#### <div align="center">[Visit the prototype here!](https://www.figma.com/file/TQlM7e46UZBFw5n9esxPuo/BossaBox-Front-end?node-id=0%3A1)</div>
 #### ⚡️ TECHNOLOGIES
 
 ---
